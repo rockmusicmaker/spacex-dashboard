@@ -1,0 +1,93 @@
+@import "node_modules/modern-normalize/modern-normalize.css";
+
+:root {
+  /* color scheme */
+  --sxd-purple-600: #7135c0;
+  --sxd-purple-50: #f8f2ff;
+  --sxd-green-600: #237b49;
+  --sxd-green-50: #f2fff8;
+  --sxd-text-strong: #3d3d;
+  --sxd-text-week: #6b6b6b;
+  --sxd-stroke-strong: #8c8c8c;
+  --sxd-stroke-week: #d6d6d6;
+  --sxd-neutral-fill: #fcfcfc;
+  --sxd-neutral-background: #f7f7f7;
+
+  /* depth */
+  --sxd-raised: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  --sxd-overlay: drop-shadow(0 0 #0000);
+
+  /* spacing */
+  --sxd-space-xxs: 0.25rem; /* 4px */
+  --sxd-space-xs: 0.5rem; /* 8px */
+  --sxd-space-sm: 1rem; /* 16px */
+  --sxd-space-med: 1.5rem; /* 24px */
+  --sxd-space-lg: 2rem; /* 32px */
+  --sxd-space-xl: 3rem; /* 48px */
+  --sxd-space-xxl: 5rem; /* 80px */
+
+  /* rounded corner */
+  --sxd-rounded: 0.7rem; /* 8px */
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: var(--sxd-neutral-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-width: 1280px;
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 0;
+}

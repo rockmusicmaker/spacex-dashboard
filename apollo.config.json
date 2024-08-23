@@ -1,0 +1,9 @@
+{
+  "client": {
+    "service": {
+      "name": "SpaceX-pxxbxen",
+      "url": "https://spacex-production.up.railway.app/"
+    },
+    "includes": ["src/**/*.vue", "src/**/*.js"]
+  }
+}
