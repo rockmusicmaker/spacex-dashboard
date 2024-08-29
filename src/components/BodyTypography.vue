@@ -20,6 +20,7 @@ export default {
 <template>
   <p :class="this.parsedSize"><slot /></p>
 </template>
+
 <style scoped>
 p.sm {
 }
@@ -28,5 +29,7 @@ p.med {
 }
 
 p.lg {
+  font-size: 20px;
+  line-height: 120%;
 }
 </style>

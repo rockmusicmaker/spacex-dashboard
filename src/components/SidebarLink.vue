@@ -1,17 +1,24 @@
 <script setup>
 import { defineProps } from "vue";
-import { HeadingTypography, BodyTypography } from "@/components";
+import { BodyTypography } from "@/components";
 
 defineProps({
   label: { type: String, required: true },
+  active: {
+    type: Boolean,
+    required: true,
+  },
 });
 const emit = defineEmits(["click"]);
 </script>
 
 <template>
-  <button @click="() => emit('click')" class="sidebar-link">
+  <button
+    @click="() => emit('click')"
+    :class="['sidebar-link', active ? 'active' : 'inactive']"
+  >
     <slot name="icon" />
-    <BodyTypography>
+    <BodyTypography size="lg">
       {{ label }}
     </BodyTypography>
   </button>
@@ -22,13 +29,23 @@ const emit = defineEmits(["click"]);
   display: flex;
   justify-content: start;
   align-items: center;
-  background-color: var(--sxd-purple-600);
+  width: 100%;
   border-radius: var(--sxd-rounded);
   padding-left: var(--sxd-space-sm);
   padding-right: var(--sxd-space-sm);
   padding-top: var(--sxd-space-xs);
   padding-bottom: var(--sxd-space-xs);
+  cursor: pointer;
+}
+
+.sidebar-link.active {
+  background-color: var(--sxd-purple-600);
   color: var(--sxd-neutral-fill);
+}
+
+.sidebar-link.inactive {
+  background-color: transparent;
+  color: var(--sxd-text-strong);
 }
 
 .sidebar-link > * {

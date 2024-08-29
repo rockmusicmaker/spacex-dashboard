@@ -1,6 +1,6 @@
-<script setup lang="ts">
+<script setup>
 import { RouterLink, RouterView } from "vue-router";
-import { HeadingTypography, SidebarLink } from "@/components";
+import { SidebarLink } from "@/components";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faChartBar } from "@fortawesome/free-regular-svg-icons";
 </script>
@@ -11,18 +11,21 @@ import { faChartBar } from "@fortawesome/free-regular-svg-icons";
       <div class="logo">Logo</div>
       <ul class="links" aria-label="page links">
         <li>
-          <SidebarLink
-            label="Launches"
-            @click="
-              () => {
-                console.log('clicked launches');
-              }
-            "
-          >
-            <template v-slot:icon
-              ><FontAwesomeIcon :icon="faChartBar"
-            /></template>
-          </SidebarLink>
+          <RouterLink to="/launches" v-slot="{ isActive }">
+            <SidebarLink
+              label="Launches"
+              @click="
+                () => {
+                  console.log('clicked launches');
+                }
+              "
+              :active="isActive"
+            >
+              <template v-slot:icon
+                ><FontAwesomeIcon :icon="faChartBar"
+              /></template>
+            </SidebarLink>
+          </RouterLink>
         </li>
       </ul>
     </nav>
@@ -65,6 +68,15 @@ import { faChartBar } from "@fortawesome/free-regular-svg-icons";
 }
 
 .links {
+  display: flex;
+  flex-direction: column;
+}
+
+.links > * {
+  margin-top: var(--sxd-space-sm);
+}
+.links > *:first-child {
+  margin-top: 0;
 }
 
 .content {

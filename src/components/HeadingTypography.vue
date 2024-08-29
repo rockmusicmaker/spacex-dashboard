@@ -23,18 +23,18 @@ defineProps({
 <style scoped>
 h1 {
   font-size: 40px;
-  line-height: 48px;
+  line-height: 120%;
 }
 h2 {
   font-size: 32px;
-  line-height: 40px;
+  line-height: 125%;
 }
 h3 {
   font-size: 24px;
-  line-height: 32px;
+  line-height: 134%;
 }
 h4 {
   font-size: 20px;
-  line-height: 28px;
+  line-height: 140%;
 }
 </style>

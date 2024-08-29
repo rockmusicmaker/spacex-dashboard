@@ -1,15 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { LaunchDashboard } from "@/views";
 
-const router = createRouter({
+export const Router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
-      name: "Dashboard",
+      path: "/launches",
+      name: "Launches",
       component: LaunchDashboard,
     },
+    { path: "/:pathMatch(.*)*", redirect: "/launches" },
   ],
 });
 
-export default router;
+export default Router;
