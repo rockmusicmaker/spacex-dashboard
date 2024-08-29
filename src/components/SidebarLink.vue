@@ -31,7 +31,7 @@ defineProps({
   padding-right: var(--sxd-space-sm);
   padding-top: var(--sxd-space-xs);
   padding-bottom: var(--sxd-space-xs);
-  cursor: pointer;
+  column-gap: var(--sxd-space-xs);
 }
 
 .sidebar-link.active {
@@ -43,13 +43,6 @@ defineProps({
 .sidebar-link.inactive {
   background-color: transparent;
   color: var(--sxd-text-strong);
-}
-
-.sidebar-link > * {
-  margin-left: var(--sxd-space-xs);
-}
-
-.sidebar-link > *:first-child {
-  margin-left: 0;
+  cursor: pointer;
 }
 </style>

@@ -20,6 +20,6 @@ button {
 }
 
 button:hover {
-  background-color: var(--sxd-stroke-week);
+  background-color: var(--sxd-stroke-weak);
 }
 </style>

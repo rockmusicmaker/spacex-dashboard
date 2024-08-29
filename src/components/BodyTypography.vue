@@ -23,9 +23,13 @@ export default {
 
 <style scoped>
 p.sm {
+  font-size: 14px;
+  line-height: 140%;
 }
 
 p.med {
+  font-size: 16px;
+  line-height: 140%;
 }
 
 p.lg {

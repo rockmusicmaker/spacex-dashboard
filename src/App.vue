@@ -1,8 +1,19 @@
 <script setup>
 import { RouterLink, RouterView, useRoute } from "vue-router";
-import { SidebarLink, HeadingTypography, IconButton } from "@/components";
+import {
+  SidebarLink,
+  HeadingTypography,
+  IconButton,
+  SegmentedControl,
+  BodyTypography,
+} from "@/components";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faChartBar, faBell } from "@fortawesome/free-regular-svg-icons";
+import {
+  faChartBar,
+  faBell,
+  faSun,
+  faMoon,
+} from "@fortawesome/free-regular-svg-icons";
 
 const location = useRoute();
 </script>
@@ -24,15 +35,25 @@ const location = useRoute();
       </ul>
     </nav>
     <div class="content">
-      <span class="topbar">
+      <header class="topbar">
         <HeadingTypography variant="h1">{{ location.name }}</HeadingTypography>
-        <span>
+        <span class="toolbar">
+          <SegmentedControl>
+            <SegmentedControl.Segment :active="false">
+              <FontAwesomeIcon :icon="faMoon" />
+            </SegmentedControl.Segment>
+            <SegmentedControl.Segment :active="true">
+              <FontAwesomeIcon :icon="faSun" />
+            </SegmentedControl.Segment>
+          </SegmentedControl>
           <IconButton @click="() => console.log('clicked it')">
             <FontAwesomeIcon :icon="faBell" />
           </IconButton>
         </span>
-      </span>
-      <RouterView />
+      </header>
+      <main>
+        <RouterView />
+      </main>
     </div>
   </div>
 </template>
@@ -57,13 +78,7 @@ const location = useRoute();
   padding-right: var(--sxd-space-med);
   padding-top: var(--sxd-space-med);
   padding-bottom: var(--sxd-space-xs);
-}
-
-.sidebar > * {
-  margin-top: var(--sxd-space-lg);
-}
-.sidebar > *:first-child {
-  margin-top: 0;
+  row-gap: var(--sxd-space-lg);
 }
 
 .logo {
@@ -72,13 +87,7 @@ const location = useRoute();
 .links {
   display: flex;
   flex-direction: column;
-}
-
-.links > * {
-  margin-top: var(--sxd-space-sm);
-}
-.links > *:first-child {
-  margin-top: 0;
+  row-gap: var(--sxd-space-sm);
 }
 
 .content {
@@ -91,14 +100,7 @@ const location = useRoute();
   padding-bottom: var(--sxd-space-med);
   display: flex;
   flex-direction: column;
-}
-
-.content > * {
-  margin-top: var(--sxd-space-med);
-}
-
-.content > *:first-child {
-  margin-top: 0;
+  row-gap: var(--sxd-space-med);
 }
 
 .topbar {
@@ -107,5 +109,10 @@ const location = useRoute();
   min-width: 0;
   justify-content: space-between;
   align-items: center;
+}
+
+.toolbar {
+  display: flex;
+  column-gap: var(--sxd-space-sm);
 }
 </style>
