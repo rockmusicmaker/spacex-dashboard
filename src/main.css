@@ -79,7 +79,7 @@ input[type="reset"] {
   border: none;
   padding: 0;
   font: inherit;
-  cursor: pointer;
+  cursor: inherit;
   outline: inherit;
 }
 

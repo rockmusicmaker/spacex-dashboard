@@ -6,5 +6,5 @@ const { result } = QueryLaunches();
 </script>
 
 <template>
-  <HeadingTypography variant="h1">Launches</HeadingTypography>
+  <div>content</div>
 </template>

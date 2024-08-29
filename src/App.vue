@@ -1,8 +1,10 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-import { SidebarLink } from "@/components";
+import { RouterLink, RouterView, useRoute } from "vue-router";
+import { SidebarLink, HeadingTypography, IconButton } from "@/components";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faChartBar } from "@fortawesome/free-regular-svg-icons";
+import { faChartBar, faBell } from "@fortawesome/free-regular-svg-icons";
+
+const location = useRoute();
 </script>
 
 <template>
@@ -12,24 +14,24 @@ import { faChartBar } from "@fortawesome/free-regular-svg-icons";
       <ul class="links" aria-label="page links">
         <li>
           <RouterLink to="/launches" v-slot="{ isActive }">
-            <SidebarLink
-              label="Launches"
-              @click="
-                () => {
-                  console.log('clicked launches');
-                }
-              "
-              :active="isActive"
-            >
-              <template v-slot:icon
-                ><FontAwesomeIcon :icon="faChartBar"
-              /></template>
+            <SidebarLink label="Launches" :active="isActive">
+              <template v-slot:icon>
+                <FontAwesomeIcon :icon="faChartBar" />
+              </template>
             </SidebarLink>
           </RouterLink>
         </li>
       </ul>
     </nav>
     <div class="content">
+      <span class="topbar">
+        <HeadingTypography variant="h1">{{ location.name }}</HeadingTypography>
+        <span>
+          <IconButton @click="() => console.log('clicked it')">
+            <FontAwesomeIcon :icon="faBell" />
+          </IconButton>
+        </span>
+      </span>
       <RouterView />
     </div>
   </div>
@@ -47,7 +49,7 @@ import { faChartBar } from "@fortawesome/free-regular-svg-icons";
 .sidebar {
   width: fit-content;
   height: 100%;
-  background-color: var(--sxd-netural-fill);
+  background-color: var(--sxd-neutral-fill);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,5 +84,28 @@ import { faChartBar } from "@fortawesome/free-regular-svg-icons";
 .content {
   width: 100%;
   min-width: 0;
+  background-color: var(--sxd-neutral-background);
+  padding-left: var(--sxd-space-lg);
+  padding-right: var(--sxd-space-lg);
+  padding-top: var(--sxd-space-med);
+  padding-bottom: var(--sxd-space-med);
+  display: flex;
+  flex-direction: column;
+}
+
+.content > * {
+  margin-top: var(--sxd-space-med);
+}
+
+.content > *:first-child {
+  margin-top: 0;
+}
+
+.topbar {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

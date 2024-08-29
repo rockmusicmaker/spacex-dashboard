@@ -9,19 +9,15 @@ defineProps({
     required: true,
   },
 });
-const emit = defineEmits(["click"]);
 </script>
 
 <template>
-  <button
-    @click="() => emit('click')"
-    :class="['sidebar-link', active ? 'active' : 'inactive']"
-  >
+  <div :class="['sidebar-link', active ? 'active' : 'inactive']">
     <slot name="icon" />
     <BodyTypography size="lg">
       {{ label }}
     </BodyTypography>
-  </button>
+  </div>
 </template>
 
 <style scoped>
@@ -41,6 +37,7 @@ const emit = defineEmits(["click"]);
 .sidebar-link.active {
   background-color: var(--sxd-purple-600);
   color: var(--sxd-neutral-fill);
+  filter: var(--sxd-raised);
 }
 
 .sidebar-link.inactive {
