@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import { RouterLink, RouterView, useRoute } from "vue-router";
 import {
   SidebarLink,
@@ -16,6 +17,8 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 
 const location = useRoute();
+
+const theme = ref("light");
 </script>
 
 <template>
@@ -39,10 +42,24 @@ const location = useRoute();
         <HeadingTypography variant="h1">{{ location.name }}</HeadingTypography>
         <span class="toolbar">
           <SegmentedControl>
-            <SegmentedControl.Segment :active="false">
+            <SegmentedControl.Segment
+              :active="theme === 'dark'"
+              @click="
+                () => {
+                  theme = 'dark';
+                }
+              "
+            >
               <FontAwesomeIcon :icon="faMoon" />
             </SegmentedControl.Segment>
-            <SegmentedControl.Segment :active="true">
+            <SegmentedControl.Segment
+              :active="theme === 'light'"
+              @click="
+                () => {
+                  theme = 'light';
+                }
+              "
+            >
               <FontAwesomeIcon :icon="faSun" />
             </SegmentedControl.Segment>
           </SegmentedControl>

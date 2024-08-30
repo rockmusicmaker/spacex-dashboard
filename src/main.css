@@ -29,6 +29,9 @@
 
   /* rounded corner */
   --sxd-rounded: 0.7rem; /* 8px */
+
+  /* animations */
+  --sxd-transition-duration: 150ms;
 }
 
 body {
@@ -36,8 +39,8 @@ body {
   width: 100vw;
   background: var(--sxd-neutral-background);
   transition:
-    color 0.5s,
-    background-color 0.5s;
+    color var(--sxd-transition-duration),
+    background-color var(--sxd-transition-duration);
   font-family:
     Inter,
     -apple-system,

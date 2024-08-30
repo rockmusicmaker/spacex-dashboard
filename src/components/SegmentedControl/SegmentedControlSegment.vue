@@ -27,14 +27,15 @@ li {
   padding-right: var(--sxd-space-xs);
   padding-top: var(--sxd-space-xs);
   padding-bottom: var(--sxd-space-xs);
+  z-index: 50;
 }
 
 li.active {
-  background-color: var(--sxd-purple-600);
+  background-color: transparent;
   color: var(--sxd-neutral-fill);
 }
 li.inactive {
-  background-color: var(--sxd-neutral-fill);
+  background-color: transparent;
   color: var(--sxd-text-weak);
   cursor: pointer;
 }
