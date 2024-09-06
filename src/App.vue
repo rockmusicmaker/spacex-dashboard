@@ -1,12 +1,13 @@
 <script setup>
-import { ref } from "vue";
+import { onBeforeMount, ref, watch } from "vue";
 import { RouterLink, RouterView, useRoute } from "vue-router";
 import {
   SidebarLink,
   HeadingTypography,
-  IconButton,
+  Button,
   SegmentedControl,
   BodyTypography,
+  SegmentedControlSegment,
 } from "@/components";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
@@ -15,10 +16,14 @@ import {
   faSun,
   faMoon,
 } from "@fortawesome/free-regular-svg-icons";
+import { useColorTheme } from "@/composables";
 
 const location = useRoute();
+const { listenToPrefrenceChanges, theme, setColorTheme } = useColorTheme();
 
-const theme = ref("light");
+onBeforeMount(() => {
+  listenToPrefrenceChanges();
+});
 </script>
 
 <template>
@@ -28,9 +33,12 @@ const theme = ref("light");
       <ul class="links" aria-label="page links">
         <li>
           <RouterLink to="/launches" v-slot="{ isActive }">
-            <SidebarLink label="Launches" :active="isActive">
-              <template v-slot:icon>
+            <SidebarLink :active="isActive">
+              <template #icon>
                 <FontAwesomeIcon :icon="faChartBar" />
+              </template>
+              <template #label>
+                <BodyTypography size="lg">Launches</BodyTypography>
               </template>
             </SidebarLink>
           </RouterLink>
@@ -42,30 +50,26 @@ const theme = ref("light");
         <HeadingTypography variant="h1">{{ location.name }}</HeadingTypography>
         <span class="toolbar">
           <SegmentedControl>
-            <SegmentedControl.Segment
-              :active="theme === 'dark'"
-              @click="
-                () => {
-                  theme = 'dark';
-                }
-              "
-            >
-              <FontAwesomeIcon :icon="faMoon" />
-            </SegmentedControl.Segment>
-            <SegmentedControl.Segment
+            <SegmentedControlSegment
+              key="light"
               :active="theme === 'light'"
-              @click="
-                () => {
-                  theme = 'light';
-                }
-              "
+              @select="() => setColorTheme('light')"
             >
               <FontAwesomeIcon :icon="faSun" />
-            </SegmentedControl.Segment>
+            </SegmentedControlSegment>
+
+            <SegmentedControlSegment
+              key="dark"
+              :active="theme === 'dark'"
+              @select="() => setColorTheme('dark')"
+            >
+              <FontAwesomeIcon :icon="faMoon" />
+            </SegmentedControlSegment>
           </SegmentedControl>
-          <IconButton @click="() => console.log('clicked it')">
+
+          <Button @click="() => console.log('clicked it')">
             <FontAwesomeIcon :icon="faBell" />
-          </IconButton>
+          </Button>
         </span>
       </header>
       <main>
@@ -87,7 +91,7 @@ const theme = ref("light");
 .sidebar {
   width: fit-content;
   height: 100%;
-  background-color: var(--sxd-neutral-fill);
+  background-color: var(--sxd-neutral-fill-base);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,9 +100,6 @@ const theme = ref("light");
   padding-top: var(--sxd-space-med);
   padding-bottom: var(--sxd-space-xs);
   row-gap: var(--sxd-space-lg);
-}
-
-.logo {
 }
 
 .links {

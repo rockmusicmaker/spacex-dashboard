@@ -13,7 +13,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: var(--sxd-space-sm);
-  background-color: var(--sxd-neutral-fill);
+  background-color: var(--sxd-neutral-fill-raised);
   filter: var(--sxd-raised);
   border-radius: var(--sxd-space-xs);
   cursor: pointer;

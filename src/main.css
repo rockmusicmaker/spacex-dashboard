@@ -1,17 +1,17 @@
 @import "node_modules/modern-normalize/modern-normalize.css";
 
 :root {
-  /* color scheme */
-  --sxd-purple-600: #7135c0;
-  --sxd-purple-50: #f8f2ff;
-  --sxd-green-600: #237b49;
-  --sxd-green-50: #f2fff8;
-  --sxd-text-strong: #3d3d3d;
-  --sxd-text-weak: #6b6b6b;
-  --sxd-stroke-strong: #8c8c8c;
-  --sxd-stroke-weak: #d6d6d6;
-  --sxd-neutral-fill: #fcfcfc;
-  --sxd-neutral-background: #f7f7f7;
+  /* colors */
+  --sxd-purple-light-600: #7135c0;
+  --sxd-purple-light-50: #f8f2ff;
+  --sxd-green-light-600: #237b49;
+  --sxd-green-light-50: #f2fff8;
+  --sxd-neutral-600: #3d3d3d;
+  --sxd-neutral-500: #6b6b6b;
+  --sxd-neutral-400: #8c8c8c;
+  --sxd-neutral-300: #d6d6d6;
+  --sxd-neutral-200: #fcfcfc;
+  --sxd-neutral-100: #f7f7f7;
 
   /* depth */
   --sxd-raised: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
@@ -27,20 +27,53 @@
   --sxd-space-xl: 3rem; /* 48px */
   --sxd-space-xxl: 5rem; /* 80px */
 
-  /* rounded corner */
+  /* corners */
   --sxd-rounded: 0.7rem; /* 8px */
 
   /* animations */
   --sxd-transition-duration: 150ms;
 }
 
+[color-theme="light"] {
+  --sxd-primary-600: var(--sxd-purple-light-600);
+  --sxd-primary-500: var(--sxd-purple-light-500);
+  --sxd-secondary-600: var(--sxd-green-light-600);
+  --sxd-secondary-50: var(--sxd-green-light-50);
+
+  --sxd-text-strong: var(--sxd-neutral-600);
+  --sxd-text-weak: var(--sxd-neutral-500);
+  --sxd-stroke-strong: var(--sxd-neutral-400);
+  --sxd-stroke-weak: var(--sxd-neutral-300);
+  --sxd-neutral-fill-base: var(--sxd-neutral-200);
+  --sxd-neutral-fill-raised: var(--sxd-neutral-200);
+  --sxd-neutral-fill-overlay: var(--sxd-neutral-200);
+  --sxd-neutral-background: var(--sxd-neutral-100);
+}
+
+[color-theme="dark"] {
+  --sxd-primary-600: var(--sxd-purple-light-600);
+  --sxd-primary-500: var(--sxd-purple-light-500);
+  --sxd-secondary-600: var(--sxd-green-light-600);
+  --sxd-secondary-50: var(--sxd-green-light-50);
+
+  --sxd-text-strong: var(--sxd-neutral-100);
+  --sxd-text-weak: var(--sxd-neutral-200);
+  --sxd-stroke-strong: var(--sxd-neutral-200);
+  --sxd-stroke-weak: var(--sxd-neutral-200);
+  --sxd-neutral-fill-base: var(--sxd-neutral-300);
+  --sxd-neutral-fill-raised: var(--sxd-neutral-400);
+  --sxd-neutral-fill-overlay: var(--sxd-neutral-500);
+  --sxd-neutral-background: var(--sxd-neutral-600);
+}
+
+* {
+  transition: background-color var(--sxd-transition-duration);
+}
 body {
   height: 100vh;
   width: 100vw;
   background: var(--sxd-neutral-background);
-  transition:
-    color var(--sxd-transition-duration),
-    background-color var(--sxd-transition-duration);
+
   font-family:
     Inter,
     -apple-system,

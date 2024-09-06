@@ -1,9 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
-import { BodyTypography } from "@/components";
 
 defineProps({
-  label: { type: String, required: true },
   active: {
     type: Boolean,
     required: true,
@@ -14,9 +12,7 @@ defineProps({
 <template>
   <div :class="['sidebar-link', active ? 'active' : 'inactive']">
     <slot name="icon" />
-    <BodyTypography size="lg">
-      {{ label }}
-    </BodyTypography>
+    <slot name="label" />
   </div>
 </template>
 
@@ -32,11 +28,12 @@ defineProps({
   padding-top: var(--sxd-space-xs);
   padding-bottom: var(--sxd-space-xs);
   column-gap: var(--sxd-space-xs);
+  z-index: 30;
 }
 
 .sidebar-link.active {
-  background-color: var(--sxd-purple-600);
-  color: var(--sxd-neutral-fill);
+  background-color: var(--sxd-primary-600);
+  color: var(--sxd-neutral-fill-base);
   filter: var(--sxd-raised);
 }
 
