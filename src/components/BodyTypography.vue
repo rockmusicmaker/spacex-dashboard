@@ -22,6 +22,9 @@ export default {
 </template>
 
 <style scoped>
+p {
+  color: var(--sxd-text-strong);
+}
 p.sm {
   font-size: 14px;
   line-height: 140%;

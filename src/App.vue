@@ -29,7 +29,9 @@ onBeforeMount(() => {
 <template>
   <div class="container">
     <nav class="sidebar">
-      <div class="logo">Logo</div>
+      <div class="logo">
+        <HeadingTypography variant="h1">Logo</HeadingTypography>
+      </div>
       <ul class="links" aria-label="page links">
         <li>
           <RouterLink to="/launches" v-slot="{ isActive }">
@@ -37,9 +39,7 @@ onBeforeMount(() => {
               <template #icon>
                 <FontAwesomeIcon :icon="faChartBar" />
               </template>
-              <template #label>
-                <BodyTypography size="lg">Launches</BodyTypography>
-              </template>
+              <template #label> Launches </template>
             </SidebarLink>
           </RouterLink>
         </li>

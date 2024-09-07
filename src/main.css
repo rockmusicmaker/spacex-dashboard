@@ -2,11 +2,13 @@
 
 :root {
   /* colors */
-  --sxd-purple-light-600: #7135c0;
-  --sxd-purple-light-50: #f8f2ff;
-  --sxd-green-light-600: #237b49;
-  --sxd-green-light-50: #f2fff8;
+  --sxd-purple-600: hsl(266, 57%, 48%);
+  --sxd-purple-500: hsl(266, 55%, 65%);
+  --sxd-purple-50: #f8f2ff;
+  --sxd-green-600: #237b49;
+  --sxd-green-50: #f2fff8;
   --sxd-neutral-600: #3d3d3d;
+  --sxd-neutral-550: #3d3d3d;
   --sxd-neutral-500: #6b6b6b;
   --sxd-neutral-400: #8c8c8c;
   --sxd-neutral-300: #d6d6d6;
@@ -35,13 +37,14 @@
 }
 
 [color-theme="light"] {
-  --sxd-primary-600: var(--sxd-purple-light-600);
-  --sxd-primary-500: var(--sxd-purple-light-500);
-  --sxd-secondary-600: var(--sxd-green-light-600);
-  --sxd-secondary-50: var(--sxd-green-light-50);
+  --sxd-primary-600: var(--sxd-purple-600);
+  --sxd-primary-50: var(--sxd-purple-500);
+  --sxd-secondary-600: var(--sxd-green-600);
+  --sxd-secondary-50: var(--sxd-green-50);
 
   --sxd-text-strong: var(--sxd-neutral-600);
   --sxd-text-weak: var(--sxd-neutral-500);
+  --sxd-text-on-primary: var(--sxd-neutral-200);
   --sxd-stroke-strong: var(--sxd-neutral-400);
   --sxd-stroke-weak: var(--sxd-neutral-300);
   --sxd-neutral-fill-base: var(--sxd-neutral-200);
@@ -51,17 +54,18 @@
 }
 
 [color-theme="dark"] {
-  --sxd-primary-600: var(--sxd-purple-light-600);
-  --sxd-primary-500: var(--sxd-purple-light-500);
-  --sxd-secondary-600: var(--sxd-green-light-600);
-  --sxd-secondary-50: var(--sxd-green-light-50);
+  --sxd-primary-600: var(--sxd-purple-500);
+  --sxd-primary-50: var(--sxd-purple-500);
+  --sxd-secondary-600: var(--sxd-green-600);
+  --sxd-secondary-50: var(--sxd-green-50);
 
   --sxd-text-strong: var(--sxd-neutral-100);
-  --sxd-text-weak: var(--sxd-neutral-200);
+  --sxd-text-weak: var(--sxd-neutral-300);
+  --sxd-text-on-primary: var(--sxd-neutral-100);
   --sxd-stroke-strong: var(--sxd-neutral-200);
   --sxd-stroke-weak: var(--sxd-neutral-200);
-  --sxd-neutral-fill-base: var(--sxd-neutral-300);
-  --sxd-neutral-fill-raised: var(--sxd-neutral-400);
+  --sxd-neutral-fill-base: var(--sxd-neutral-500);
+  --sxd-neutral-fill-raised: var(--sxd-neutral-500);
   --sxd-neutral-fill-overlay: var(--sxd-neutral-500);
   --sxd-neutral-background: var(--sxd-neutral-600);
 }

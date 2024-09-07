@@ -17,6 +17,7 @@ button {
   filter: var(--sxd-raised);
   border-radius: var(--sxd-space-xs);
   cursor: pointer;
+  color: var(--sxd-text-weak);
 }
 
 button:hover {

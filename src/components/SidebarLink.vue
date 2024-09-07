@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
+import { useColorTheme } from "@/composables";
 
 defineProps({
   active: {
@@ -7,12 +8,14 @@ defineProps({
     required: true,
   },
 });
+
+const { theme } = useColorTheme();
 </script>
 
 <template>
   <div :class="['sidebar-link', active ? 'active' : 'inactive']">
     <slot name="icon" />
-    <slot name="label" />
+    <BodyTypography size="lg"><slot name="label" /></BodyTypography>
   </div>
 </template>
 
@@ -29,11 +32,12 @@ defineProps({
   padding-bottom: var(--sxd-space-xs);
   column-gap: var(--sxd-space-xs);
   z-index: 30;
+  color: var(--sxd-text-strong);
 }
 
 .sidebar-link.active {
   background-color: var(--sxd-primary-600);
-  color: var(--sxd-neutral-fill-base);
+  color: var(--sxd-text-on-primary);
   filter: var(--sxd-raised);
 }
 

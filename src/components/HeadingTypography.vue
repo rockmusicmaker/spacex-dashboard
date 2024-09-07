@@ -21,6 +21,12 @@ defineProps({
 </template>
 
 <style scoped>
+h1,
+h2,
+h3,
+h4 {
+  color: var(--sxd-text-strong);
+}
 h1 {
   font-size: 40px;
   line-height: 120%;

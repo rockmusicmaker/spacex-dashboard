@@ -43,7 +43,7 @@ button {
   align-items: center;
 }
 button.active {
-  color: var(--sxd-neutral-fill-base);
+  color: var(--sxd-text-on-primary);
   background-color: var(--sxd-primary-600);
 }
 button.inactive {
