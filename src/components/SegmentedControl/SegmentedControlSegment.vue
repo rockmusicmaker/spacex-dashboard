@@ -20,7 +20,9 @@ export default {
       :class="this.active ? 'active' : 'inactive'"
     >
       <slot>
-        <BodyTypography>{{ label }}</BodyTypography>
+        <BodyTypography :color="this.active ? 'weak' : 'primary'">
+          {{ label }}
+        </BodyTypography>
       </slot>
     </button>
   </li>
@@ -37,7 +39,7 @@ button {
   padding-right: var(--sxd-space-xs);
   padding-top: var(--sxd-space-xs);
   padding-bottom: var(--sxd-space-xs);
-  border-radius: var(--sxd-space-xs);
+  border-radius: var(--sxd-rounded-sm);
   display: flex;
   justify-content: center;
   align-items: center;

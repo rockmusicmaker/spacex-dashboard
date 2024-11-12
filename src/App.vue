@@ -1,12 +1,11 @@
 <script setup>
-import { onBeforeMount, ref, watch } from "vue";
+import { onBeforeMount } from "vue";
 import { RouterLink, RouterView, useRoute } from "vue-router";
 import {
   SidebarLink,
   HeadingTypography,
   Button,
   SegmentedControl,
-  BodyTypography,
   SegmentedControlSegment,
 } from "@/components";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -119,6 +118,12 @@ onBeforeMount(() => {
   display: flex;
   flex-direction: column;
   row-gap: var(--sxd-space-med);
+  & > main {
+    display: flex;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .topbar {

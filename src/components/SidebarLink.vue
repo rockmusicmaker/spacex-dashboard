@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
 import { useColorTheme } from "@/composables";
+import { BodyTypography } from "@/components";
 
 defineProps({
   active: {
@@ -15,7 +16,9 @@ const { theme } = useColorTheme();
 <template>
   <div :class="['sidebar-link', active ? 'active' : 'inactive']">
     <slot name="icon" />
-    <BodyTypography size="lg"><slot name="label" /></BodyTypography>
+    <BodyTypography size="lg" :color="active ? 'primary' : 'strong'"
+      ><slot name="label"
+    /></BodyTypography>
   </div>
 </template>
 
@@ -25,7 +28,7 @@ const { theme } = useColorTheme();
   justify-content: start;
   align-items: center;
   width: 100%;
-  border-radius: var(--sxd-rounded);
+  border-radius: var(--sxd-rounded-sm);
   padding-left: var(--sxd-space-sm);
   padding-right: var(--sxd-space-sm);
   padding-top: var(--sxd-space-xs);

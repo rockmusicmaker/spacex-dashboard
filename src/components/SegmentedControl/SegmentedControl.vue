@@ -13,7 +13,7 @@ ul {
   column-gap: var(--sxd-space-xs);
   align-items: center;
   background-color: var(--sxd-neutral-fill-raised);
-  border-radius: var(--sxd-space-xs);
+  border-radius: var(--sxd-rounded-sm);
   padding: var(--sxd-space-xs);
   filter: var(--sxd-raised);
   position: relative;

@@ -30,7 +30,8 @@
   --sxd-space-xxl: 5rem; /* 80px */
 
   /* corners */
-  --sxd-rounded: 0.7rem; /* 8px */
+  --sxd-rounded-sm: 0.7rem; /* 8px */
+  --sxd-rounded-lg: 1rem; /* 16px */
 
   /* animations */
   --sxd-transition-duration: 150ms;
@@ -78,6 +79,9 @@ body {
   width: 100vw;
   background: var(--sxd-neutral-background);
 
+  min-width: 1500px;
+  min-height: 960px;
+
   font-family:
     Inter,
     -apple-system,
@@ -123,7 +127,8 @@ input[type="reset"] {
   outline: inherit;
 }
 
-ul {
+ul,
+ol {
   list-style: none;
   padding: 0;
   margin: 0;

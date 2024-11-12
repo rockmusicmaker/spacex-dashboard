@@ -15,7 +15,7 @@ button {
   padding: var(--sxd-space-sm);
   background-color: var(--sxd-neutral-fill-raised);
   filter: var(--sxd-raised);
-  border-radius: var(--sxd-space-xs);
+  border-radius: var(--sxd-rounded-sm);
   cursor: pointer;
   color: var(--sxd-text-weak);
 }
