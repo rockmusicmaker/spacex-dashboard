@@ -1,13 +1,8 @@
 export const FormatTime = (
   date,
-  locales = "en-US",
+  locale = navigator.language,
   options = {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  },
-) =>
-  new Intl.DateTimeFormat(locales, {
     hour: "numeric",
     minute: "numeric",
-  }).format(date);
+  },
+) => new Intl.DateTimeFormat(locale, options).format(date);

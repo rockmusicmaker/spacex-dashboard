@@ -1,6 +1,6 @@
 export const FormatDate = (
   date,
-  locales = "en-US",
+  locales = navigator.language,
   options = {
     day: "numeric",
     month: "long",

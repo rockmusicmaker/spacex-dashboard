@@ -85,57 +85,67 @@ onBeforeMount(() => {
   min-width: 0;
   height: 100%;
   min-height: 0;
-}
 
-.sidebar {
-  width: fit-content;
-  height: 100%;
-  background-color: var(--sxd-neutral-fill-base);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: var(--sxd-space-med);
-  padding-right: var(--sxd-space-med);
-  padding-top: var(--sxd-space-med);
-  padding-bottom: var(--sxd-space-xs);
-  row-gap: var(--sxd-space-lg);
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--sxd-space-sm);
-}
-
-.content {
-  width: 100%;
-  min-width: 0;
-  background-color: var(--sxd-neutral-background);
-  padding-left: var(--sxd-space-lg);
-  padding-right: var(--sxd-space-lg);
-  padding-top: var(--sxd-space-med);
-  padding-bottom: var(--sxd-space-med);
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--sxd-space-med);
-  & > main {
-    display: flex;
-    min-width: 0;
-    width: 100%;
+  .sidebar {
+    width: fit-content;
     height: 100%;
+    background-color: var(--sxd-neutral-fill-base);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: var(--sxd-space-med);
+    padding-right: var(--sxd-space-med);
+    padding-top: var(--sxd-space-med);
+    padding-bottom: var(--sxd-space-xs);
+    row-gap: var(--sxd-space-lg);
   }
-}
 
-.topbar {
-  display: flex;
-  width: 100%;
-  min-width: 0;
-  justify-content: space-between;
-  align-items: center;
-}
+  .links {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--sxd-space-sm);
+  }
 
-.toolbar {
-  display: flex;
-  column-gap: var(--sxd-space-sm);
+  .content {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    background-color: var(--sxd-neutral-background);
+    padding-left: var(--sxd-space-lg);
+    padding-top: var(--sxd-space-med);
+    padding-bottom: var(--sxd-space-med);
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--sxd-space-med);
+
+    main {
+      display: flex;
+      min-width: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+    }
+  }
+
+  .topbar {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: var(--sxd-space-lg);
+
+    svg {
+      width: var(--sxd-space-sm);
+      height: var(--sxd-space-sm);
+    }
+  }
+
+  .toolbar {
+    display: flex;
+    column-gap: var(--sxd-space-sm);
+  }
 }
 </style>

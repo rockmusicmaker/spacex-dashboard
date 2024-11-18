@@ -1,31 +1,24 @@
 <script setup>
-import {
-  BodyTypography,
-  HeadingTypography,
-  SegmentedControl,
-  SegmentedControlSegment,
-} from "@/components";
-import { QueryLaunches } from "@/apollo";
-import { PastLaunches, UpcomingLaunches } from "./components";
+import { useUpcomingLaunches, useLaunches } from "@/apollo";
+import { PastLaunches, UpcomingLaunches, AllLaunches } from "./components";
 
-const { result } = QueryLaunches();
+const { result: upcoming, loading: loadingUpcoming } = useUpcomingLaunches();
+const { result: all, loading: loadingAll } = useLaunches();
 </script>
 
 <template>
-  <div class="launches">
-    <section class="past">
-      <PastLaunches />
-    </section>
-    <aside class="upcoming">
-      <UpcomingLaunches
-        :upcoming-launches="[
-          {
-            name: 'USSF-44',
-            date: new Date('8:00 1 September 2024'),
-            rocketName: 'Falcon Heavy',
-          },
-        ]"
-      />
+  <div v-if="loadingUpcoming || loadingAll">loading...</div>
+  <div v-else class="launches">
+    <div class="left">
+      <section class="past">
+        <PastLaunches />
+      </section>
+      <section class="all">
+        <AllLaunches :launches="all?.launches ?? []" />
+      </section>
+    </div>
+    <aside class="right">
+      <UpcomingLaunches :upcoming-launches="upcoming?.launchesUpcoming ?? []" />
     </aside>
   </div>
 </template>
@@ -38,6 +31,7 @@ const { result } = QueryLaunches();
   width: 100%;
   min-width: 0;
   height: 100%;
+  min-height: 0;
 
   & > * {
     margin-left: var(--sxd-space-lg);
@@ -46,15 +40,39 @@ const { result } = QueryLaunches();
     margin-left: 0;
   }
 
-  .past {
+  .left {
     display: flex;
     flex-grow: 1;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+
+    .past {
+      display: flex;
+      min-height: fit-content;
+      max-height: 50%;
+    }
+    .all {
+      display: flex;
+      max-height: 100%;
+      min-height: 0;
+    }
+
+    & > * {
+      margin-top: var(--sxd-space-lg);
+    }
+    & > *:first-child {
+      margin-top: 0;
+    }
   }
 
-  .upcoming {
+  .right {
     width: 33%;
-    min-width: 0;
+    flex-shrink: 0;
     display: flex;
+    height: 100%;
+    min-height: 0;
   }
 }
 </style>

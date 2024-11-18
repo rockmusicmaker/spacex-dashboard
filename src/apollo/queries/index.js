@@ -1,1 +1,2 @@
-export * from "./QueryLaunches";
+export * from "./useUpcomingLaunches";
+export * from "./useLaunches";
