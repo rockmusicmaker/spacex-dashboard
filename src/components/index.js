@@ -6,3 +6,4 @@ export * from "./SegmentedControl";
 export { default as CardContainer } from "./CardContainer.vue";
 export { default as ValueBadge } from "./ValueBadge.vue";
 export { default as DataTable } from "./DataTable.vue";
+export * from "./DropdownPicker";
